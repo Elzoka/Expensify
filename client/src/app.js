@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import AppRouter from "./routers/AppRouter.js";
 import configureStore from "./store/configureStore";
+import { Provider } from "react-redux";
 import { addExpense, removeExpense, editExpense } from "./actions/expenses";
 import {
     setStartDate,
@@ -23,4 +24,11 @@ store.dispatch(setTextFilter("water"));
 const state = store.getState();
 const visibelExpenses = getVisibleExpenses(state.expenses, state.filters);
 console.log(visibelExpenses);
-ReactDOM.render(<AppRouter />, document.getElementById("app"));
+
+const jsx = (
+    <Provider store={store}>
+        <AppRouter />
+    </Provider>
+);
+
+ReactDOM.render(jsx, document.getElementById("app"));
