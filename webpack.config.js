@@ -1,31 +1,28 @@
-const path = require('path');
+const path = require("path");
 
 module.exports = {
-    entry: path.join(__dirname, '/client/src/app.js'),
+    entry: path.join(__dirname, "/client/src/app.js"),
     output: {
-        path: path.join(__dirname, '/client/public'),
-        filename: 'bundle.js'
+        path: path.join(__dirname, "/client/public"),
+        filename: "bundle.js"
     },
-    mode: 'development',
+    mode: "development",
     module: {
-        rules: [{
-            loader: 'babel-loader',
-            test: /\.js$/,
-            exclude: /node_modules/
+        rules: [
+            {
+                loader: "babel-loader",
+                test: /\.js$/,
+                exclude: /node_modules/
             },
             {
                 test: /\.s?css$/,
-                use: [
-                    'style-loader',
-                    'css-loader',
-                    'sass-loader'
-                ]
+                use: ["style-loader", "css-loader", "sass-loader"]
             }
         ]
     },
-    devtool: 'cheap-module-eval-source-map',
+    devtool: "cheap-module-eval-source-map",
     devServer: {
-        contentBase: path.join(__dirname, '/client/public'),
+        contentBase: path.join(__dirname, "/client/public"),
         historyApiFallback: true
     }
-}
+};
