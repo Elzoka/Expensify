@@ -52,5 +52,5 @@ test('should set end date filter', () => {
         type: 'SET_END_DATE',
         endDate
     });
-    expect(state.endDate).toEqual(moment());
+    expect(state.endDate).toEqual(endDate);
 });
